@@ -1,0 +1,13 @@
+﻿<ProjectState>
+  <Version>1.0</Version>
+  <FileID>aaddbbfb-1591-4905-8d60-3c87a174a6ed</FileID>
+  <OpenFolders />
+  <OpenFiles>
+    <File>Globals.ps1</File>
+    <File>Add-NetAddress.ps1</File>
+    <File>Set-Proxy.ps1</File>
+    <File>Import-Cert.ps1</File>
+    <File>MainForm.psf</File>
+    <File>Startup.pss</File>
+  </OpenFiles>
+</ProjectState>
