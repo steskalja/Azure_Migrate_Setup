@@ -62,17 +62,18 @@ function Show-MainForm_psf {
 	$tabcontrol1.SuspendLayout()
 	$tabpage1.SuspendLayout()
 	$groupbox2.SuspendLayout()
+	$gbICStatus.SuspendLayout()
 	$groupbox1.SuspendLayout()
 	$tabpage2.SuspendLayout()
 	$gbCCStatus.SuspendLayout()
-	$gbICStatus.SuspendLayout()
 	#
 	# frmams
 	#
 	$frmams.Controls.Add($tabcontrol1)
 	$frmams.AutoScaleDimensions = '8, 17'
 	$frmams.AutoScaleMode = 'Font'
-	$frmams.ClientSize = '876, 514'
+	$frmams.AutoSizeMode = 'GrowAndShrink'
+	$frmams.ClientSize = '834, 514'
 	#region Binary Data
 	$frmams.Icon = [System.Convert]::FromBase64String('
 AAABAAEAB4MAAAEACAAMfQMAFgAAACgAAAAHAgAABgMAAAEACAAAAAAAAAAAAAAAAAAAAAAAAAEA
@@ -4089,6 +4090,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAA')
 	#endregion
 	$frmams.Margin = '5, 5, 5, 5'
+	$frmams.MinimumSize = '852, 561'
 	$frmams.Name = 'frmams'
 	$frmams.Text = 'Azure Migrate Setup'
 	$frmams.add_Load($frmams_Load)
@@ -4097,11 +4099,12 @@ AAAAAAAAAAAAAAAAAAAA')
 	#
 	$tabcontrol1.Controls.Add($tabpage1)
 	$tabcontrol1.Controls.Add($tabpage2)
+	$tabcontrol1.Anchor = 'Top, Bottom, Left, Right'
 	$tabcontrol1.Location = '4, 4'
 	$tabcontrol1.Margin = '4, 4, 4, 4'
 	$tabcontrol1.Name = 'tabcontrol1'
 	$tabcontrol1.SelectedIndex = 0
-	$tabcontrol1.Size = '871, 507'
+	$tabcontrol1.Size = '825, 507'
 	$tabcontrol1.TabIndex = 20
 	#
 	# tabpage1
@@ -4111,7 +4114,7 @@ AAAAAAAAAAAAAAAAAAAA')
 	$tabpage1.Margin = '4, 4, 4, 4'
 	$tabpage1.Name = 'tabpage1'
 	$tabpage1.Padding = '4, 4, 4, 4'
-	$tabpage1.Size = '863, 477'
+	$tabpage1.Size = '817, 477'
 	$tabpage1.TabIndex = 0
 	$tabpage1.Text = 'Internet Config'
 	$tabpage1.UseVisualStyleBackColor = $True
@@ -4130,11 +4133,13 @@ AAAAAAAAAAAAAAAAAAAA')
 	$groupbox2.Controls.Add($tbPEL)
 	$groupbox2.Controls.Add($lbProxyPort)
 	$groupbox2.Controls.Add($buttonConfigure)
-	$groupbox2.Location = '8, 8'
+	$groupbox2.Anchor = 'Top, Bottom, Left, Right'
+	$groupbox2.AutoSizeMode = 'GrowAndShrink'
+	$groupbox2.Location = '5, 8'
 	$groupbox2.Margin = '4, 4, 4, 4'
 	$groupbox2.Name = 'groupbox2'
 	$groupbox2.Padding = '4, 4, 4, 4'
-	$groupbox2.Size = '843, 445'
+	$groupbox2.Size = '797, 452'
 	$groupbox2.TabIndex = 19
 	$groupbox2.TabStop = $False
 	$groupbox2.UseCompatibleTextRendering = $True
@@ -4142,6 +4147,7 @@ AAAAAAAAAAAAAAAAAAAA')
 	# gbICStatus
 	#
 	$gbICStatus.Controls.Add($lbICResults)
+	$gbICStatus.Anchor = 'Top, Bottom, Left, Right'
 	$gbICStatus.Location = '439, 219'
 	$gbICStatus.Margin = '4, 4, 4, 4'
 	$gbICStatus.Name = 'gbICStatus'
@@ -4154,6 +4160,8 @@ AAAAAAAAAAAAAAAAAAAA')
 	#
 	# lbICResults
 	#
+	$lbICResults.Anchor = 'Top, Bottom, Left, Right'
+	$lbICResults.BorderStyle = 'None'
 	$lbICResults.Location = '8, 20'
 	$lbICResults.Margin = '4, 4, 4, 4'
 	$lbICResults.Multiline = $True
@@ -4379,7 +4387,7 @@ AAAAAAAAAAAAAAAAAAAA')
 	$tabpage2.Margin = '4, 4, 4, 4'
 	$tabpage2.Name = 'tabpage2'
 	$tabpage2.Padding = '4, 4, 4, 4'
-	$tabpage2.Size = '863, 477'
+	$tabpage2.Size = '817, 477'
 	$tabpage2.TabIndex = 1
 	$tabpage2.Text = 'Certificate Config'
 	$tabpage2.UseVisualStyleBackColor = $True
@@ -4399,11 +4407,12 @@ AAAAAAAAAAAAAAAAAAAA')
 	# gbCCStatus
 	#
 	$gbCCStatus.Controls.Add($lbCCResults)
+	$gbCCStatus.Anchor = 'Top, Bottom, Left, Right'
 	$gbCCStatus.Location = '9, 150'
 	$gbCCStatus.Margin = '4, 4, 4, 4'
 	$gbCCStatus.Name = 'gbCCStatus'
 	$gbCCStatus.Padding = '4, 4, 4, 4'
-	$gbCCStatus.Size = '427, 292'
+	$gbCCStatus.Size = '800, 292'
 	$gbCCStatus.TabIndex = 6
 	$gbCCStatus.TabStop = $False
 	$gbCCStatus.Text = 'Status'
@@ -4411,13 +4420,14 @@ AAAAAAAAAAAAAAAAAAAA')
 	#
 	# lbCCResults
 	#
+	$lbCCResults.Anchor = 'Top, Bottom, Left, Right'
 	$lbCCResults.BorderStyle = 'None'
 	$lbCCResults.Location = '4, 27'
 	$lbCCResults.Margin = '4, 4, 4, 4'
 	$lbCCResults.Multiline = $True
 	$lbCCResults.Name = 'lbCCResults'
 	$lbCCResults.ScrollBars = 'Vertical'
-	$lbCCResults.Size = '420, 257'
+	$lbCCResults.Size = '793, 257'
 	$lbCCResults.TabIndex = 1
 	#
 	# lbCertStore
@@ -4508,10 +4518,10 @@ AAAAAAAAAAAAAAAAAAAA')
 	$imagelist1.ColorDepth = 'Depth8Bit'
 	$imagelist1.ImageSize = '16, 16'
 	$imagelist1.TransparentColor = 'Transparent'
-	$gbICStatus.ResumeLayout()
 	$gbCCStatus.ResumeLayout()
 	$tabpage2.ResumeLayout()
 	$groupbox1.ResumeLayout()
+	$gbICStatus.ResumeLayout()
 	$groupbox2.ResumeLayout()
 	$tabpage1.ResumeLayout()
 	$tabcontrol1.ResumeLayout()

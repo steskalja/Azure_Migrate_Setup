@@ -33,7 +33,7 @@ function Convert-Subnetmask
 	}
 	catch
 	{
-		return $_
+		throw $_
 	}
 }
 
@@ -61,7 +61,7 @@ function Convert-Prefix
 	}
 	catch
 	{
-		return $_
+		throw $_
 	}
 }
 
@@ -77,15 +77,15 @@ function Set-IPAddress
 		[Parameter(ValueFromPipeline = $true, Mandatory = $true)]
 		[string]$Sn
 	)
-	
-	$rslt = New-NetIPAddress -InterfaceAlias $Nic -IPAddress $Ipadd -DefaultGateway $Gw -PrefixLength $(Convert-Subnetmask $Sn) -ErrorVariable $rslterr
-	if (!$rslterr)
+	try
 	{
-		return $rslt
+		New-NetIPAddress -InterfaceAlias $Nic -IPAddress $Ipadd -DefaultGateway $Gw -PrefixLength $(Convert-Subnetmask $Sn)
+		return "IP Address Configured $Ipadd for Nic $Nic"
+
 	}
-	else
+	catch
 	{
-		return $rslterr
+		return $_
 	}
 	
 }
@@ -98,17 +98,17 @@ function Set-DNS
 		[Parameter(ValueFromPipeline = $true, Mandatory = $true)]
 		[string]$DnsAdd
 	)
-	[string[]] $DnsAdds = $DnsAdd.Split('|', ',',';')
-	$rslt = Set-DnsClientServerAddress -InterfaceAlias $Nic -ServerAddresses $DnsAdds -ErrorVariable $rslterr
-	if (!$rslterr)
+	try
 	{
-		return $rslt
+		$DnsAdds = $DnsAdd.Split("|").Split(",").Split(";")
+		Set-DnsClientServerAddress -InterfaceAlias $Nic -ServerAddresses $DnsAdds 
+		return "DNS Addresses added: $DNSAdds"
+		
 	}
-	else
+	catch
 	{
-		return $rslterr
+		return $_
 	}
-	
 }
 
 

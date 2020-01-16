@@ -96,9 +96,9 @@ function Set-DNS
 		[Parameter(ValueFromPipeline = $true, Mandatory = $true)]
 		[string]$Nic,
 		[Parameter(ValueFromPipeline = $true, Mandatory = $true)]
-		[string[]]$DnsAdds
+		[string]$DnsAdd
 	)
-	
+	[string[]] $DnsAdds = $DnsAdd.Split('|', ',',';')
 	$rslt = Set-DnsClientServerAddress -InterfaceAlias $Nic -ServerAddresses $DnsAdds -ErrorVariable $rslterr
 	if (!$rslterr)
 	{
